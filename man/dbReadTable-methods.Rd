@@ -95,6 +95,13 @@
   \code{field.types} is a list of named field SQL types where 
   \code{names(field.types)} provide the new table's column names 
   (if missing, field types are inferred using \code{\link[DBI]{dbDataType}}).
+
+  \code{match.cols} can be passed when calling \code{dbWriteTable}. It allows for specifying the columns to
+  insert into as the column names of the data frame being inserted. In order to use this argument, you must
+  set \code{append=TRUE}. Additionally, all columns in the data frame must exist in the destination table or
+  else an error will be thrown. Note that this allows for the use of auto-incrementing columns such as
+  SERIAL primary keys. It also allows for the columns in the data frame to be in any order, not necessarily
+  matching the column order of the table. Its default is FALSE.
  }
 
 }
