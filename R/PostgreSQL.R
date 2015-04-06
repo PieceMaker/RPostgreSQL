@@ -204,8 +204,8 @@ setMethod("dbRemoveTable",
 setMethod("dbListFields",
           signature(conn="PostgreSQLConnection", name="character"),
           def = function(conn, name, schema = NA, ...){
-              #Allow names to be passed in in the form of "schema.tablename"
-              name <- unlist(strsplit(name, '[.]'))
+              ##Allow names to be passed in in the form of "schema.tablename"
+              #name <- unlist(strsplit(name, '[.]'))
               qlength <- length(name)
               if(qlength == 1){
               if(is.na(schema)) {
